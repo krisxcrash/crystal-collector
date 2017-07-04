@@ -1,0 +1,30 @@
+h1,
+h2,
+h3, 
+.rules {
+	text-align: center;
+}
+
+.rules {
+	padding: 0 25px;
+}
+
+img {
+	padding: 10px;
+}
+
+#crystals {
+	margin: 0 auto;
+	align-content: center;
+}
+
+.wins,
+.losses {
+	padding: 0 100px;
+	font-size: 1.2em;
+}
+
+.randNumber,
+.userNumber {
+	margin: 100px;
+}
