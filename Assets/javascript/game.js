@@ -66,9 +66,11 @@ $(document).ready(function() {
 
 function displayRandom() {
 
+
 	if (userNumber === randomNumber) {
 		alert("Congrats! You won!");
 		wins++;
+
 
 	} else if (userNumber > randomNumber) {
 		alert("Better luck next time!");

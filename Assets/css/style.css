@@ -15,9 +15,12 @@ h3,
 	background-image: url(../images/background_2.jpg);
 	color: white;
 }
+
 .rules {
 	padding: 0 25px;
 }
+
+/* IMAGES */
 
 img {
 	padding: 10px;
@@ -28,10 +31,25 @@ img {
           transition: all 0.5s ease;
 }
 
+img:hover {
+  -webkit-transform: rotate(-10deg);
+     -moz-transform: rotate(-10deg);
+       -o-transform: rotate(-10deg);
+      -ms-transform: rotate(-10deg);
+          transform: rotate(-10deg);
+}
+
 #crystals {
 	margin: 0 auto;
 	align-content: center;
 }
+
+/* BODY FORMATTING */
+
+.col-md-6 {
+	margin: 0 auto;
+}
+
 
 .wins,
 .losses {
@@ -50,10 +68,32 @@ img {
 	text-align: center;
 }
 
-img:hover {
-  -webkit-transform: rotate(-10deg);
-     -moz-transform: rotate(-10deg);
-       -o-transform: rotate(-10deg);
-      -ms-transform: rotate(-10deg);
-          transform: rotate(-10deg);
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 980px) {
+	#crystals {
+	margin: 0 75px 0 125px;
+	}
 }
+
+@media screen and (max-width: 768px) {
+	#crystals {
+	margin: 0 auto;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	#crystals {
+	margin: 0 55px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.jumbotron {
+		padding: 100px 25px;
+	}
+	#crystals {
+	margin: 0 100px;
+	}
+}
+
