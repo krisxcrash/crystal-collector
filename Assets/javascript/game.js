@@ -24,6 +24,8 @@ $(document).ready(function() {
 	var userNumber = 0;
 	var wins = 0;
 	var losses = 0;
+
+	//create function for this
 	var gem1 = Math.floor(Math.random() * ((19 - 1)+1) + 1);
 	var gem2 = Math.floor(Math.random() * ((19 - 1)+1) + 1);
 	var gem3 = Math.floor(Math.random() * ((19 - 1)+1) + 1);
@@ -33,43 +35,60 @@ $(document).ready(function() {
 
 
 // WHEN CLICKED, "USER NUMBER" INCREASES BY VALUE OF GEM
+
+//combine into one function (attr "data-attribute")
 	$("#gem1").on("click", function() {
 		console.log(gem1);
-		userNumber++;
+		userNumber += gem1;
+		console.log(userNumber, 'user number')
+		$('#uNumber').html(userNumber)
+		displayRandom()
 	});
 
 	$("#gem2").on("click", function() {
 		console.log(gem2);
-		userNumber++;
+		userNumber += gem2;
+		console.log(userNumber, 'user number')
 	});
 
 	$("#gem3").on("click", function() {
 		console.log(gem3);
 		userNumber++;
+		console.log(userNumber, 'user number')
 	});
 
 	$("#gem4").on("click", function() {
 		console.log(gem4);
 		userNumber++;
+		console.log(userNumber, 'user number')
 	});
 
 	$("#gem5").on("click", function() {
 		console.log(gem5);
 		userNumber++;
+		console.log(userNumber, 'user number')
 	});
 
 	$("#gem6").on("click", function() {
 		console.log(gem6);
 		userNumber++;
+		console.log(userNumber, 'user number')
 	});
 
-
 function displayRandom() {
-
+	
 
 	if (userNumber === randomNumber) {
 		alert("Congrats! You won!");
 		wins++;
+		randomNumber = Math.floor(Math.random() * ((120 - 19)+1) + 19);
+		gem1 = Math.floor(Math.random() * ((19 - 1)+1) + 1);
+		gem2 = Math.floor(Math.random() * ((19 - 1)+1) + 1);
+		gem3 = Math.floor(Math.random() * ((19 - 1)+1) + 1);
+		gem4 = Math.floor(Math.random() * ((19 - 1)+1) + 1); 
+		gem5 = Math.floor(Math.random() * ((19 - 1)+1) + 1);
+		gem6 = Math.floor(Math.random() * ((19 - 1)+1) + 1);	
+
 
 
 	} else if (userNumber > randomNumber) {
