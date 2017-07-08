@@ -16,87 +16,140 @@
 	- "YOUR NUMBER" RESET TO 0
 	- +1 POINT FOR LOSSES
 */
-
+function randomRange(min, max) {
+	// returm a random number between the range
+	return Math.floor(Math.random() * ((max - min)+1) + min);
+}
 
 $(document).ready(function() {
 
-	var randomNumber = Math.floor(Math.random() * ((120 - 19)+1) + 19);
+	function generateGemRandomness() {
+		gem1 = randomRange(1,19);
+		gem2 = randomRange(1,19);
+		gem3 = randomRange(1,19);
+		gem4 = randomRange(1,19); 
+		gem5 = randomRange(1,19);
+		gem6 = randomRange(1,19);
+
+		// $("#gem1").attr("data-score", gem1);
+		// $("#gem2").attr("data-score", gem2);
+		// $("#gem3").attr("data-score", gem3);
+		// $("#gem4").attr("data-score", gem4);
+		// $("#gem5").attr("data-score", gem5);
+		// $("#gem6").attr("data-score", gem6);
+	}
+
+	var randomNumber = randomRange(19, 120);
 	var userNumber = 0;
 	var wins = 0;
 	var losses = 0;
 
-	//create function for this
-	var gem1 = Math.floor(Math.random() * ((19 - 1)+1) + 1);
-	var gem2 = Math.floor(Math.random() * ((19 - 1)+1) + 1);
-	var gem3 = Math.floor(Math.random() * ((19 - 1)+1) + 1);
-	var gem4 = Math.floor(Math.random() * ((19 - 1)+1) + 1); 
-	var gem5 = Math.floor(Math.random() * ((19 - 1)+1) + 1);
-	var gem6 = Math.floor(Math.random() * ((19 - 1)+1) + 1);
+	var gem1, gem2, gem3, gem4, gem5, gem6;
+	generateGemRandomness();
+	
+	var score = 
+		"<p>Wins: " + wins + "</p>" + 
+		"<p>Losses: " + losses + "</p>";
+
+	document.querySelector("#scoreboard").innerHTML = score;
+
+
+var play = function() {
+	randomNumber = randomRange(19, 120);
+	userNumber = 0;
+	generateGemRandomness();
+
+		var randNumber = 
+		"<p>" + randomNumber + "</p>";
+
+		document.querySelector('#randNumber').innerHTML = randNumber;
+
+		var uNumber = 
+		"<p>" + userNumber + "</p>";
+
+		document.querySelector('#uNumber').innerHTML = uNumber;
+}
 
 
 // WHEN CLICKED, "USER NUMBER" INCREASES BY VALUE OF GEM
 
-//combine into one function (attr "data-attribute")
+// $('.gems').on('click', function() {
+// 	var score = $(this).attr('data-score');
+// 	userNumber += score;
+// 	$('#uNumber').html(userNumber)
+// 	displayRandom()
+
+// })
+
+
+
+
+
 	$("#gem1").on("click", function() {
-		console.log(gem1);
 		userNumber += gem1;
-		console.log(userNumber, 'user number')
 		$('#uNumber').html(userNumber)
 		displayRandom()
 	});
 
 	$("#gem2").on("click", function() {
-		console.log(gem2);
 		userNumber += gem2;
-		console.log(userNumber, 'user number')
+		$('#uNumber').html(userNumber)
+		displayRandom()
 	});
 
 	$("#gem3").on("click", function() {
-		console.log(gem3);
-		userNumber++;
-		console.log(userNumber, 'user number')
+		userNumber += gem3;
+		$('#uNumber').html(userNumber)
+		displayRandom()
 	});
 
 	$("#gem4").on("click", function() {
-		console.log(gem4);
-		userNumber++;
-		console.log(userNumber, 'user number')
+		userNumber += gem4;
+		$('#uNumber').html(userNumber)
+		displayRandom()
 	});
 
 	$("#gem5").on("click", function() {
-		console.log(gem5);
-		userNumber++;
-		console.log(userNumber, 'user number')
+		userNumber += gem5;
+		$('#uNumber').html(userNumber)
+		displayRandom()
 	});
 
 	$("#gem6").on("click", function() {
-		console.log(gem6);
-		userNumber++;
-		console.log(userNumber, 'user number')
+		userNumber += gem6;
+		$('#uNumber').html(userNumber)
+		displayRandom()
 	});
+
+
 
 function displayRandom() {
 	
 
 	if (userNumber === randomNumber) {
-		alert("Congrats! You won!");
 		wins++;
-		randomNumber = Math.floor(Math.random() * ((120 - 19)+1) + 19);
-		gem1 = Math.floor(Math.random() * ((19 - 1)+1) + 1);
-		gem2 = Math.floor(Math.random() * ((19 - 1)+1) + 1);
-		gem3 = Math.floor(Math.random() * ((19 - 1)+1) + 1);
-		gem4 = Math.floor(Math.random() * ((19 - 1)+1) + 1); 
-		gem5 = Math.floor(Math.random() * ((19 - 1)+1) + 1);
-		gem6 = Math.floor(Math.random() * ((19 - 1)+1) + 1);	
-
-
+		alert("Congrats! You won!");
+		play();
+		// reset();
 
 	} else if (userNumber > randomNumber) {
-		alert("Better luck next time!");
 		losses++;
+		alert("Better luck next time!");
+		play();
+		// reset();
 
-	}
+	};
+
+		score = 
+		"<p>Wins: " + wins + "</p>" + 
+		"<p>Losses: " + losses + "</p>";
+
+		document.querySelector("#scoreboard").innerHTML = score;
 };
+
+
+
+
 
 		var randNumber = 
 		"<p>" + randomNumber + "</p>";
@@ -108,12 +161,6 @@ function displayRandom() {
 
 		document.querySelector('#uNumber').innerHTML = uNumber;
 
-
-		var html = 
-		"<p>Wins: " + wins + "</p>" + 
-		"<p>Losses: " + losses + "</p>";
-
-		document.querySelector("#scoreboard").innerHTML = html;
  
 });
 
