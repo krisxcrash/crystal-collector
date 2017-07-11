@@ -24,7 +24,7 @@ function randomRange(min, max) {
 $(document).ready(function() {
 
 
-	function generateGemRandomness() {
+	function gemRandom() {
 		gem1 = randomRange(1,19);
 		gem2 = randomRange(1,19);
 		gem3 = randomRange(1,19);
@@ -32,12 +32,12 @@ $(document).ready(function() {
 		gem5 = randomRange(1,19);
 		gem6 = randomRange(1,19);
 
-		// $("#gem1").attr("data-score", parseInt(gem1));
-		// $("#gem2").attr("data-score", gem2);
-		// $("#gem3").attr("data-score", gem3);
-		// $("#gem4").attr("data-score", gem4);
-		// $("#gem5").attr("data-score", gem5);
-		// $("#gem6").attr("data-score", gem6);
+		$("#gem1").attr("data-value", gem1);
+		$("#gem2").attr("data-value", gem2);
+		$("#gem3").attr("data-value", gem3);
+		$("#gem4").attr("data-value", gem4);
+		$("#gem5").attr("data-value", gem5);
+		$("#gem6").attr("data-value", gem6);
 
 	}
 
@@ -47,7 +47,7 @@ $(document).ready(function() {
 	var losses = 0;
 
 	var gem1, gem2, gem3, gem4, gem5, gem6;
-	generateGemRandomness();
+	gemRandom();
 	
 	var score = 
 		"<p>Wins: " + wins + "</p>" + 
@@ -59,7 +59,7 @@ $(document).ready(function() {
 var play = function() {
 	randomNumber = randomRange(19, 120);
 	userNumber = 0;
-	generateGemRandomness();
+	gemRandom();
 
 		var randNumber = 
 		"<p>" + randomNumber + "</p>";
@@ -75,53 +75,13 @@ var play = function() {
 
 // WHEN CLICKED, "USER NUMBER" INCREASES BY VALUE OF GEM
 
-// $('.gems').on('click', function() {
-// 	var score = $(this).attr('data-score');
-// 	userNumber += score;
-// 	$('#uNumber').html(userNumber);
-// 	displayRandom();
+$('.gems').on('click', function() {
+	// var score = $(this).attr('data-score');
+	userNumber += Number($(this).attr("data-value"));
+	$('#uNumber').html(userNumber);
+	displayRandom();
 
-// })
-
-
-
-
-
-	$("#gem1").on("click", function() {
-		userNumber += gem1;
-		$('#uNumber').html(userNumber)
-		displayRandom()
-	});
-
-	$("#gem2").on("click", function() {
-		userNumber += gem2;
-		$('#uNumber').html(userNumber)
-		displayRandom()
-	});
-
-	$("#gem3").on("click", function() {
-		userNumber += gem3;
-		$('#uNumber').html(userNumber)
-		displayRandom()
-	});
-
-	$("#gem4").on("click", function() {
-		userNumber += gem4;
-		$('#uNumber').html(userNumber)
-		displayRandom()
-	});
-
-	$("#gem5").on("click", function() {
-		userNumber += gem5;
-		$('#uNumber').html(userNumber)
-		displayRandom()
-	});
-
-	$("#gem6").on("click", function() {
-		userNumber += gem6;
-		$('#uNumber').html(userNumber)
-		displayRandom()
-	});
+});
 
 
 function displayRandom() {
