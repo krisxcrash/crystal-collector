@@ -23,6 +23,7 @@ function randomRange(min, max) {
 
 $(document).ready(function() {
 
+
 	function generateGemRandomness() {
 		gem1 = randomRange(1,19);
 		gem2 = randomRange(1,19);
@@ -31,12 +32,13 @@ $(document).ready(function() {
 		gem5 = randomRange(1,19);
 		gem6 = randomRange(1,19);
 
-		// $("#gem1").attr("data-score", gem1);
+		// $("#gem1").attr("data-score", parseInt(gem1));
 		// $("#gem2").attr("data-score", gem2);
 		// $("#gem3").attr("data-score", gem3);
 		// $("#gem4").attr("data-score", gem4);
 		// $("#gem5").attr("data-score", gem5);
 		// $("#gem6").attr("data-score", gem6);
+
 	}
 
 	var randomNumber = randomRange(19, 120);
@@ -76,8 +78,8 @@ var play = function() {
 // $('.gems').on('click', function() {
 // 	var score = $(this).attr('data-score');
 // 	userNumber += score;
-// 	$('#uNumber').html(userNumber)
-// 	displayRandom()
+// 	$('#uNumber').html(userNumber);
+// 	displayRandom();
 
 // })
 
@@ -122,21 +124,17 @@ var play = function() {
 	});
 
 
-
 function displayRandom() {
 	
-
 	if (userNumber === randomNumber) {
 		wins++;
 		alert("Congrats! You won!");
 		play();
-		// reset();
 
 	} else if (userNumber > randomNumber) {
 		losses++;
 		alert("Better luck next time!");
 		play();
-		// reset();
 
 	};
 
@@ -146,10 +144,6 @@ function displayRandom() {
 
 		document.querySelector("#scoreboard").innerHTML = score;
 };
-
-
-
-
 
 		var randNumber = 
 		"<p>" + randomNumber + "</p>";
@@ -161,7 +155,6 @@ function displayRandom() {
 
 		document.querySelector('#uNumber').innerHTML = uNumber;
 
- 
 });
 
 
